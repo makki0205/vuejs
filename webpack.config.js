@@ -3,13 +3,11 @@ var webpack = require('webpack')
 
 module.exports = {
   entry: {
-    login: './src/adminLogin.js',
-    ctrl: './src/adminCtrl.js',
-    checkin: './src/checkin.js'
+    index: './client/src/index.js',
   },
   output: {
-    path: path.resolve(__dirname, './../public/js/'),
-    filename: 'admin-[name].bundle.js'
+    path: path.resolve(__dirname, './public/js/'),
+    filename: '[name].bundle.js'
   },
   module: {
     rules: [{

@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 func main() {
@@ -13,14 +14,9 @@ func main() {
 
 	r.LoadHTMLGlob("view/*")
 	//ウェルカムページ
-	r.GET("/", func(c *gin.Context) {
-		c.HTML(200, "index.html", nil)
+	r.NoRoute(func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.html", nil)
 	})
-
-	////wsハンドラ
-	//r.GET("/ws", func(c *gin.Context) {
-	//	websocket.GetHandle()(c.Writer, c.Request)
-	//})
 
 	api := r.Group("/api")
 	// crosの許可
