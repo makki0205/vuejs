@@ -48,7 +48,7 @@ func (self userImpl) FindByEmail(email string) *model.User {
 }
 func (self userImpl) FindBy(query interface{}, args ...interface{}) []model.User {
 	user := []model.User{}
-	db.Where(query, args...).Find(user)
+	db.Where(query, args...).Find(&user)
 	if len(user) == 0 {
 		return nil
 	}
@@ -57,7 +57,7 @@ func (self userImpl) FindBy(query interface{}, args ...interface{}) []model.User
 
 func (self userImpl) FindByOne(query interface{}, args ...interface{}) *model.User {
 	user := []model.User{}
-	db.Where(query, args...).Find(user)
+	db.Where(query, args...).Find(&user)
 	if len(user) == 0 {
 		return nil
 	}
