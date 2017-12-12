@@ -5,6 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/makki0205/vuejs/auth"
+	"github.com/makki0205/vuejs/controller"
 )
 
 func main() {
@@ -19,6 +20,7 @@ func main() {
 	})
 	api := r.Group("/api")
 	api.POST("/signin", auth.LoginController)
+	api.POST("/signup", controller.User.Create)
 
 	authApi := api.Group("")
 	authApi.Use(auth.AuthMiddleware)
