@@ -13,19 +13,15 @@ func main() {
 	r.Static("/css", "./public/css")
 
 	r.LoadHTMLGlob("view/*")
-	//ウェルカムページ
+
 	r.NoRoute(func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
 
 	api := r.Group("/api")
-	// crosの許可
-	api.GET("/makki", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"name":  "katsuramaki taiki",
-			"sex":   "man",
-			"email": "llxo2_5oxll@icloud.com",
-		})
+
+	api.GET("/", func(c *gin.Context) {
+
 	})
 	r.Run(":3000")
 }

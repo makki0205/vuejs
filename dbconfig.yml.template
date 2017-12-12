@@ -1,4 +1,4 @@
 development:
   dialect: mysql
-  datasource: root:password@tcp(127.0.0.1:3306)/{dbname}?parseTime=true
+  datasource: root:password@tcp(127.0.0.1:3306)/keyManager?parseTime=true
   dir: migration
