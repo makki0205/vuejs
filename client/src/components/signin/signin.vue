@@ -1,8 +1,23 @@
 <template>
-    <h1>signin</h1>
+    <section>
+        <button class="button is-primary is-medium" @click="cardModal()">
+            Launch card modal (Component)
+        </button>
+    </section>
 </template>
+
 <script>
+    import ModalForm from './loginModal.vue'
+
     export default {
-        name: "signin"
+        methods: {
+            cardModal() {
+                this.$modal.open({
+                    parent: this,
+                    component: ModalForm,
+                    hasModalCard: true
+                })
+            }
+        }
     }
 </script>
