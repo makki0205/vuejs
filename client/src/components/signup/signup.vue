@@ -1,28 +1,23 @@
 <template>
     <section>
-        <b-field label="Email">
-            <b-input
-                    type="email"
-                    v-model="email"
-                    placeholder="Your email"
-                    required>
-            </b-input>
-        </b-field>
-
-        <b-field label="Password">
-            <b-input
-                    type="password"
-                    v-model="password"
-                    password-reveal
-                    placeholder="Your password"
-                    required>
-            </b-input>
-        </b-field>
+        <button class="button is-primary is-medium" @click="cardModal()">
+            Launch card modal (Component)
+        </button>
     </section>
-
 </template>
+
 <script>
+    import ModalForm from './signupModal.vue'
+
     export default {
-        name:"signup",
+        methods: {
+            cardModal() {
+                this.$modal.open({
+                    parent: this,
+                    component: ModalForm,
+                    hasModalCard: true
+                })
+            }
+        }
     }
 </script>
