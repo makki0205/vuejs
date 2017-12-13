@@ -33,6 +33,7 @@
 
 <script>
     import user from '../../services/user'
+    import validationUtils from '../../lib/ValidationUtils'
 
     export default {
         name:"login-modal",
@@ -44,9 +45,17 @@
         },
         methods:{
             signUp(){
+                if (validationUtils.isBlank(this.email)) {
+                    validationUtils.pushMessage('メールアドレスガニュウリョクサレテイマセン', this)
+                    return
+                }
+                if (validationUtils.isBlank(this.password)) {
+                    validationUtils.pushMessage('パスワードガニュウリョクサレテイマセン', this)
+                    return
+                }
                 user.create(this.email, this.password)
                     .then((response) => {
-                        if (response.status == 200) {
+                        if (response.status === 200) {
                             this.$toast.open({
                                 message: '登録が完了しました',
                                 type: 'is-success'
