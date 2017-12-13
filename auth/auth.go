@@ -22,7 +22,7 @@ func LoginController(c *gin.Context) {
 		controller.BatRequest("emailが登録されていません", c)
 		return
 	}
-	if user.Password == req.Password {
+	if user.Password != req.Password {
 		controller.BatRequest("passwordが違います", c)
 		return
 	}

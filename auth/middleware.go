@@ -20,6 +20,7 @@ func AuthMiddleware(c *gin.Context) {
 		c.JSON(http.StatusUnauthorized, gin.H{
 			"err": "トークンがちがいまーす笑笑おつーーー",
 		})
+		panic(err)
 		return
 	}
 	c.Set("user_id", userId)
