@@ -23,7 +23,7 @@ func createToken(userID uint) string {
 }
 
 func perseToken(token string) (uint, error) {
-	t, err := jwt_lib.Parse(token, func(t *jwt_lib.Token) (interface{}, error) { return []byte("hoge"), nil })
+	t, err := jwt_lib.Parse(token, func(t *jwt_lib.Token) (interface{}, error) { return []byte(key), nil })
 	if err != nil {
 		return 0, err
 	}
